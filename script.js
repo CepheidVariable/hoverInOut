@@ -1,77 +1,75 @@
-var arrCards = [ new ImageItem('./assets/2c.png'),
-                new ImageItem('./assets/3c.png'),
-                new ImageItem('./assets/4c.png'),
-                new ImageItem('./assets/5c.png'),
-                new ImageItem('./assets/6c.png'),
-                new ImageItem('./assets/7c.png'),
-                new ImageItem('./assets/8c.png'),
-                new ImageItem('./assets/9c.png'),
-                new ImageItem('./assets/10c.png'),
-                new ImageItem('./assets/jc.png'),
-                new ImageItem('./assets/qc.png'),
-                new ImageItem('./assets/kc.png'),
-                new ImageItem('./assets/ac.png'),
-                new ImageItem('./assets/2s.png'),
-                new ImageItem('./assets/3s.png'),
-                new ImageItem('./assets/4s.png'),
-                new ImageItem('./assets/5s.png'),
-                new ImageItem('./assets/6s.png'),
-                new ImageItem('./assets/7s.png'),
-                new ImageItem('./assets/8s.png'),
-                new ImageItem('./assets/9s.png'),
-                new ImageItem('./assets/10s.png'),
-                new ImageItem('./assets/js.png'),
-                new ImageItem('./assets/qs.png'),
-                new ImageItem('./assets/ks.png'),
-                new ImageItem('./assets/as.png'),
-                new ImageItem('./assets/2h.png'),
-                new ImageItem('./assets/3h.png'),
-                new ImageItem('./assets/4h.png'),
-                new ImageItem('./assets/5h.png'),
-                new ImageItem('./assets/6h.png'),
-                new ImageItem('./assets/7h.png'),
-                new ImageItem('./assets/8h.png'),
-                new ImageItem('./assets/9h.png'),
-                new ImageItem('./assets/10h.png'),
-                new ImageItem('./assets/jh.png'),
-                new ImageItem('./assets/qh.png'),
-                new ImageItem('./assets/kh.png'),
-                new ImageItem('./assets/ah.png'),
-                new ImageItem('./assets/2d.png'),
-                new ImageItem('./assets/3d.png'),
-                new ImageItem('./assets/4d.png'),
-                new ImageItem('./assets/5d.png'),
-                new ImageItem('./assets/6d.png'),
-                new ImageItem('./assets/7d.png'),
-                new ImageItem('./assets/8d.png'),
-                new ImageItem('./assets/9d.png'),
-                new ImageItem('./assets/10d.png'),
-                new ImageItem('./assets/jd.png'),
-                new ImageItem('./assets/qd.png'),
-                new ImageItem('./assets/kd.png'),
-                new ImageItem('./assets/ad.png'),
+var arrCards = [    new ImageItem('./assets/2C.png'),
+                    new ImageItem('./assets/3C.png'),
+                    new ImageItem('./assets/4C.png'),
+                    new ImageItem('./assets/5C.png'),
+                    new ImageItem('./assets/6C.png'),
+                    new ImageItem('./assets/7C.png'),
+                    new ImageItem('./assets/8C.png'),
+                    new ImageItem('./assets/9C.png'),
+                    new ImageItem('./assets/10C.png'),
+                    new ImageItem('./assets/JC.png'),
+                    new ImageItem('./assets/QC.png'),
+                    new ImageItem('./assets/KC.png'),
+                    new ImageItem('./assets/AC.png'),
+                    new ImageItem('./assets/2S.png'),
+                    new ImageItem('./assets/3S.png'),
+                    new ImageItem('./assets/4S.png'),
+                    new ImageItem('./assets/5S.png'),
+                    new ImageItem('./assets/6S.png'),
+                    new ImageItem('./assets/7S.png'),
+                    new ImageItem('./assets/8S.png'),
+                    new ImageItem('./assets/9S.png'),
+                    new ImageItem('./assets/10S.png'),
+                    new ImageItem('./assets/JS.png'),
+                    new ImageItem('./assets/QS.png'),
+                    new ImageItem('./assets/KS.png'),
+                    new ImageItem('./assets/AS.png'),
+                    new ImageItem('./assets/2H.png'),
+                    new ImageItem('./assets/3H.png'),
+                    new ImageItem('./assets/4H.png'),
+                    new ImageItem('./assets/5H.png'),
+                    new ImageItem('./assets/6H.png'),
+                    new ImageItem('./assets/7H.png'),
+                    new ImageItem('./assets/8H.png'),
+                    new ImageItem('./assets/9H.png'),
+                    new ImageItem('./assets/10H.png'),
+                    new ImageItem('./assets/JH.png'),
+                    new ImageItem('./assets/QH.png'),
+                    new ImageItem('./assets/KH.png'),
+                    new ImageItem('./assets/AH.png'),
+                    new ImageItem('./assets/2D.png'),
+                    new ImageItem('./assets/3D.png'),
+                    new ImageItem('./assets/4D.png'),
+                    new ImageItem('./assets/5D.png'),
+                    new ImageItem('./assets/6D.png'),
+                    new ImageItem('./assets/7D.png'),
+                    new ImageItem('./assets/8D.png'),
+                    new ImageItem('./assets/9D.png'),
+                    new ImageItem('./assets/10D.png'),
+                    new ImageItem('./assets/JD.png'),
+                    new ImageItem('./assets/QD.png'),
+                    new ImageItem('./assets/KD.png'),
+                    new ImageItem('./assets/AD.png'),
 ];
 function ImageItem(src){
     this.image = new Image();
     this.src = src;
 };
 
-// function loadImages(element){
-//     for (let i = 0; i < arrCards.length; i++) {
-//     };
-
 function getCard() {
-    min = Math.ceil(1);
-    max = Math.floor(53);
-    return Math.floor(Math.random() * (53 - 1) + 1);
+    min = Math.ceil(0);
+    max = Math.floor(52);
+    return Math.floor(Math.random() * (52 - 0 + 1) + 0);
 };
-                
+
 $(document).ready(function() {
 
     console.log(arrCards);
     $(".flip-box").hover(function(){
-        getCard();
-        console.log(getCard());
-    
+        $(this).find(".flip-box-back img").attr("src", arrCards[getCard()].src);
+        $(this).children(".flip-box-inner").css("transform" , "rotateY(-180deg)");
+    },
+    function(){
+            $(this).children(".flip-box-inner").css("transform" , "rotateY(0deg)");
     });
 });
